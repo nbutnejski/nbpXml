@@ -32,6 +32,12 @@ if __name__ == '__main__':
             }
             key = ('test', 'nbp', 'author_'+author[0])
             client.put(key, current_author)
+            f = open("output.txt", "w")
+            (key, metadata, record) = client.get(key)
+            #print(record)
+            f.write(record)
+            f.close()
+
 
         #author_json = json.dumps(current_author)
         #print(client.add("author_" + author[0], author_json))
